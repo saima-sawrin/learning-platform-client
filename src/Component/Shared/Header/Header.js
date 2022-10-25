@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import LeftSide from '../LeftSide/LeftSide';
 
 const Header = () => {
     return (
@@ -51,6 +52,9 @@ const Header = () => {
         <div className='d-lg-none'>
   
    </div>
+      <div className='d-lg-none'>
+      <LeftSide></LeftSide>
+      </div>
       </Navbar.Collapse>
     </Container>
   </Navbar>

@@ -7,6 +7,7 @@ import Courses from '../Component/Pages/Courses/Courses';
 import Home from '../Component/Pages/Home/Home';
 import Login from '../Component/Pages/Login/Login';
 import Register from '../Component/Pages/Register/Register';
+import Terms from '../Component/Pages/Register/Terms';
 import Main from '../Layout/Main';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
@@ -31,13 +32,17 @@ const router = createBrowserRouter([
           },
           {
             path:'/courses/:id',
-            loader:({params})=>fetch(`ttps://learning-platform-server-gamma.vercel.app/coursesInfo/${params.id}`),
+            loader:({params})=>fetch(`https://learning-platform-server-gamma.vercel.app/coursesInfo/${params.id}`),
             element: <Course></Course>
           },
          
           {
             path:'/blog',
             element: <Blog></Blog>
+          },
+          {
+            path:'/terms',
+            element: <Terms></Terms>
           },
          
             {
