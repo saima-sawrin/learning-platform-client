@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-// import { toast } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider';
 const Register = () => {
 
@@ -29,7 +29,7 @@ const Register = () => {
              form.reset();
              handleUpdateProfile(name , photoURL)
              handleEmailVerify();
-            //  toast.success('Please Verify your email before login');
+             toast.success('Please Verify your email before login');
              
          })
          .catch( e => {

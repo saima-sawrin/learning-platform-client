@@ -15,7 +15,7 @@ const Courses = ({course}) => {
         <Card.Text>
           $ {total}
         </Card.Text>
-        <Button variant="primary">{buy}</Button>
+        <Button variant="primary" size='lg'>{buy}</Button>
       </Card.Body>
     </Card>
     );
