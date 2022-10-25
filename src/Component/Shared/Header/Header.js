@@ -5,25 +5,20 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <div className='mb-3'>
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-    <Container>
-      <Navbar.Brand><Link to='/'>eduLife</Link></Navbar.Brand>
+        <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+    <Container  >
+      <Navbar.Brand> <img style={{ height: '40px' }} src="edu.png" alt="" /> <Link className='text-decoration-none' to='/'>eduLife</Link></Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="me-auto">
-          <Nav.Link >All News</Nav.Link>
-          <Nav.Link >Pricing</Nav.Link>
-          <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-            <NavDropdown.Item >Action</NavDropdown.Item>
-            <NavDropdown.Item >
-              Another action
-            </NavDropdown.Item>
-            <NavDropdown.Item >Something</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item >
-              Separated link
-            </NavDropdown.Item>
-          </NavDropdown>
+      <Navbar.Collapse id="responsive-navbar-nav ">
+        <Nav className="me-auto ms-5  ">
+        
+          <Link className='text-decoration-none mx-4' to='/courses'>Courses</Link>
+          <Link className='text-decoration-none mx-4' to='/faq'>FAQ</Link>
+          <Link className='text-decoration-none mx-4' to='/blog'>Blog</Link>
+        
+          <Link className='text-decoration-none mx-4' to='/login'>Login</Link>
+          <Link className='text-decoration-none mx-4' to='/reg'>Register</Link>
+      
         </Nav>
         {/* <Nav>
           <>
