@@ -8,14 +8,14 @@ const Courses = ({course}) => {
   const {name, logo, total , buy } = course;
 
     return (
-      <Card style={{ width: '18rem' }}>
+      <Card style={{ width: '20rem' }}>
       <Card.Img variant="top" src={logo} />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Text>
           $ {total}
         </Card.Text>
-        <Button variant="primary" size='lg'>{buy}</Button>
+        <Button variant="primary" >{buy}</Button>
       </Card.Body>
     </Card>
     );

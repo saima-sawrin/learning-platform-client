@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 import Footer from '../Component/Shared/Footer/Footer';
 import Header from '../Component/Shared/Header/Header';
 import LeftSide from '../Component/Shared/LeftSide/LeftSide';
+import RightSide from '../Component/Shared/RightSide/RightSide';
 
 const Main = () => {
     return (
@@ -11,12 +12,16 @@ const Main = () => {
             <Header></Header>
             <Container>
                 <Row >
-                   <Col lg='3' className='d-none d-lg-block'>
+                   <Col lg='2' className='d-none d-lg-block'>
                    <LeftSide></LeftSide>
                    </Col>
                    
-                    <Col lg='9' >
+                    <Col lg='7' >
                     <Outlet></Outlet>
+                    </Col>
+                    
+                    <Col lg='3' >
+                   <RightSide></RightSide>
                     </Col>
                     
                 </Row>
