@@ -5,7 +5,7 @@ import Course from '../course/Course';
 
 
 const Courses = ({course}) => {
-  const {id,name, logo, total , buy } = course;
+  const {course_id,name, logo, total , buy } = course;
 
     return (
       <Card style={{ width: '20rem' }}>
@@ -15,7 +15,7 @@ const Courses = ({course}) => {
         <Card.Text>
           $ {total}
         </Card.Text>
-        <Button variant="primary" ><Link className='text-white text-decoration-none' to={`/courses/${id}`}>{buy}</Link></Button>
+        <Button variant="primary" ><Link className='text-white text-decoration-none' to={`/courses/${course_id}`}>{buy}</Link></Button>
       </Card.Body>
     </Card>
     );

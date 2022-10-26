@@ -35,7 +35,7 @@ const router = createBrowserRouter([
           {
             path:'/courses/:id',
             loader:({params})=>fetch(`https://learning-platform-server-saima-sawrin.vercel.app/courses/${params.id}`),
-            element: <Category></Category>
+            element: <PrivateRoute><Category></Category></PrivateRoute>
           },
          
           {

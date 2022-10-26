@@ -1,9 +1,21 @@
 import React from 'react';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { useContext } from 'react';
+import {Image, Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthProvider';
 import LeftSide from '../LeftSide/LeftSide';
+import { FaUser } from 'react-icons/fa';
+import { hover } from '@testing-library/user-event/dist/hover';
+
 
 const Header = () => {
+  const {user , LogOut} = useContext(AuthContext);
+
+  const handleLogOut =()=>{
+    LogOut()
+    .then(()=>{})
+    .catch(error => console.error(error))
+  }
     return (
         <div className='mb-3'>
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -17,11 +29,11 @@ const Header = () => {
           <Link className='text-decoration-none mx-4' to='/faq'>FAQ</Link>
           <Link className='text-decoration-none mx-4' to='/blog'>Blog</Link>
         
-          <Link className='text-decoration-none mx-4' to='/login'>Login</Link>
-          <Link className='text-decoration-none mx-4' to='/reg'>Register</Link>
+          {/* <Link className='text-decoration-none mx-4' to='/login'>Login</Link>
+          <Link className='text-decoration-none mx-4' to='/reg'>Register</Link> */}
       
         </Nav>
-        {/* <Nav>
+        <Nav>
           <>
             {
               user?.uid ?
@@ -31,24 +43,25 @@ const Header = () => {
               </>
               :
               <>
-                  <Link className='text-decoration-none text-white ms-2' to='/login'>Login</Link>
-                  <Link className='text-decoration-none text-white ms-2' to='/register'>Register</Link>
+                  <Link className='text-decoration-none  mx-3' to='/login'>Login</Link>
+                  <Link className='text-decoration-none  mx-3' to='/reg'>Register</Link>
               </>
           }
           </>
-          <Nav.Link eventKey={2} >
+          <Nav.Link  >
           {user?.photoURL?
                           
                               <Image
                                   style={{ height: '30px' }}
                                   roundedCircle
+                                  hover= {user.displayName}
                                   src={user.photoURL}>
                               </Image>
                        
                               : <FaUser></FaUser>
                           }
           </Nav.Link>
-        </Nav> */}
+        </Nav>
         <div className='d-lg-none'>
   
    </div>

@@ -2,17 +2,15 @@ import React, { useContext, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider';
 const Register = () => {
 
-    const {createUser , profileUpdate , emailVerify} = useContext(AuthContext);
+    const {createUser , profileUpdate , verifyEmail} = useContext(AuthContext);
     const[error , setError] = useState('');
     const[accepted , setAccepted] = useState(false);
  
-    const handleAccepted =(event) =>{
-      setAccepted(event.target.checked)
-    }
+
      const handleSubmit = event => {
          event.preventDefault();
          const form = event.target;
@@ -21,28 +19,29 @@ const Register = () => {
          const email = form.email.value;
          const password = form.password.value;
          console.log(name, photoURL, email, password);
- 
+        
          createUser(email, password)
          .then( result => {
              const user = result.user;
              console.log(user);
              form.reset();
              handleUpdateProfile(name , photoURL)
-             handleEmailVerify();
+             handleEmailVerification();
              toast.success('Please Verify your email before login');
              
          })
          .catch( e => {
-             console.error(e)
+             alert(e)
              setError(e.message)
  
          });
          
          
      }
+  
      const handleUpdateProfile = (name, photoURL)=>{
          const profile = {
-             displayname: name,
+             displayName: name,
              photoURL : photoURL
          }
          profileUpdate(profile)
@@ -50,11 +49,15 @@ const Register = () => {
          .catch(error => console.error(error))
  
      }
-     const handleEmailVerify = () =>{
-         emailVerify()
-         .then(()=>{})
-         .catch(error => console.error(error))
-      }
+     const handleEmailVerification  = () => {
+        verifyEmail()
+        .then(() =>{})
+        .catch(error => console.error(error));
+    }
+
+    const handleAccepted = event => {
+        setAccepted(event.target.checked)
+    }
  
     return (
         <Form onSubmit={handleSubmit}>
@@ -82,7 +85,7 @@ const Register = () => {
              label= {<>Accept <Link to='/terms'>Terms & Condition</Link></>} />
         </Form.Group>
 
-        <Button variant="primary" type="submit" disabled={!accepted}>
+        <Button  variant="primary" type="submit" disabled={!accepted}>
             Register
         </Button>
         <br />
@@ -90,7 +93,9 @@ const Register = () => {
       <p>    {<>Already have an account? Please <Link to='/login'>Login</Link></>}</p>
         
         <Form.Text className="text-danger">
-           <p>{error}</p>
+            {
+                error
+            }
         </Form.Text>
     </Form>
     );

@@ -3,9 +3,10 @@ import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import {  Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
+import { toast } from 'react-hot-toast';
 
  const Login = () => {
-
+   
  const {LogIn} = useContext(AuthContext)
  const[error , setError] = useState('');
  const navigate = useNavigate();
@@ -28,6 +29,7 @@ import { AuthContext } from '../../../context/AuthProvider';
      .catch(error => {
         console.error(error)
         setError(error.message)
+        
     })
  }
 
@@ -48,11 +50,11 @@ import { AuthContext } from '../../../context/AuthProvider';
         New in eduLife? Please <Link to='/reg'>Register Now</Link>
       </Form.Text>
       <br />
-      <Button variant="primary" type="submit">
+      <Button  variant="primary" type="submit">
           Login
       </Button>
       <Form.Text className="text-danger">
-      {error}
+
       </Form.Text>
   </Form>
     );
