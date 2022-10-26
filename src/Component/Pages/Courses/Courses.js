@@ -1,11 +1,11 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Course from '../course/Course';
 
 
 const Courses = ({course}) => {
-  const {name, logo, total , buy } = course;
+  const {id,name, logo, total , buy } = course;
 
     return (
       <Card style={{ width: '20rem' }}>
@@ -15,7 +15,7 @@ const Courses = ({course}) => {
         <Card.Text>
           $ {total}
         </Card.Text>
-        <Button variant="primary" >{buy}</Button>
+        <Button variant="primary" ><Link className='text-white text-decoration-none' to={`/courses/${id}`}>{buy}</Link></Button>
       </Card.Body>
     </Card>
     );
