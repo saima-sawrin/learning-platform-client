@@ -17,7 +17,9 @@ const Courses = ({course}) => {
        
         <Button className='mb-2 ' variant="primary" ><Link className='text-white text-decoration-none ' to={`/courses/${course_id}`}>See Details</Link></Button>
         <br />
-        <Button  variant="primary">Download PDF</Button>
+        <a href="Output.pdf" download = "Output.pdf">
+          <Button  variant="primary" >Download PDF</Button>
+        </a>
       </Card.Body>
     </Card>
     );

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link} from 'react-router-dom';
-
+import './LeftSide.css';
 
 const LeftSide = () => {
    
@@ -12,14 +12,17 @@ const LeftSide = () => {
    },[])  
   
     return (
-        <div>
-            <h2>Total Courses: {courses.length}</h2>
+        <div className='catContainer'>
+            <h4>Total Courses: {courses.length}</h4>
+            <div className='category'>
             {
                 courses.map(course =>
                     <p key={course.id}>
                     <Link to={`/courses/${course.id}`}>  {course.name}</Link>
                   </p>)
             }
+            </div>
+         
         </div>
     );
 };

@@ -1,3 +1,11 @@
+# eduLife educational website
+
+1. Uses react
+2. Uses React bootstrap for UI
+3. Uses Firebase for authentication
+4. Uses Express JS in Node JS .It makes the process of creating a server simple with built-in methods.
+5. also uses react-dom , react-icon , rect-hot-toastify.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

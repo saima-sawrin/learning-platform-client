@@ -10,7 +10,7 @@ const AuthProvider = ({children}) => {
   
    
     const signIN = (provider) =>{
-        setLoading(true)
+    setLoading(true)
     return signInWithPopup(auth , provider)
 
    }
