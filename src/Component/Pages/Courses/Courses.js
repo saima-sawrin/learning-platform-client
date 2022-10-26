@@ -12,10 +12,12 @@ const Courses = ({course}) => {
       <Card.Img variant="top" src={logo} />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
-        <Card.Text>
-          $ {total}
-        </Card.Text>
-        <Button variant="primary" ><Link className='text-white text-decoration-none' to={`/courses/${course_id}`}>{buy}</Link></Button>
+     
+          <h3>$ {total}</h3>
+       
+        <Button className='mb-2 ' variant="primary" ><Link className='text-white text-decoration-none ' to={`/courses/${course_id}`}>See Details</Link></Button>
+        <br />
+        <Button  variant="primary">Download PDF</Button>
       </Card.Body>
     </Card>
     );

@@ -8,6 +8,7 @@ import { FaUser } from 'react-icons/fa';
 import { hover } from '@testing-library/user-event/dist/hover';
 import ReactSwitch from "react-switch";
 import { createContext, useState } from "react";
+import Footer from '../Footer/Footer';
 export const ThemeContext = createContext(null);
 
 const Header = () => {
@@ -25,7 +26,7 @@ const Header = () => {
     .catch(error => console.error(error))
   }
     return (
-      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      
         <div className='mb-3 main'>
         
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -42,13 +43,15 @@ const Header = () => {
           {/* <Link className='text-decoration-none mx-4' to='/login'>Login</Link>
           <Link className='text-decoration-none mx-4' to='/reg'>Register</Link> */}
        
+       <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id={theme}>
-        
+         
         <div className="switch">
           <label> {theme === "light" ? "Light Mode" : "Dark Mode"}</label>
           <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
         </div>
       </div>
+    </ThemeContext.Provider>
    
       
         </Nav>
@@ -92,7 +95,7 @@ const Header = () => {
   </Navbar>
 
       </div>
-      </ThemeContext.Provider>
+      
     );
 };
 

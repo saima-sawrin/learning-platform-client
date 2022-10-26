@@ -12,6 +12,7 @@ import Terms from '../Component/Pages/Register/Terms';
 import Main from '../Layout/Main';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import Category from '../Component/Pages/Category/Category';
+import Faq from '../Component/Pages/FAQ/Faq';
 
 
 const router = createBrowserRouter([
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
           {
             path:'/blog',
             element: <Blog></Blog>
+          },
+          {
+            path:'/faq',
+            element: <Faq></Faq>
           },
         
           {

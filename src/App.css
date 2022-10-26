@@ -37,10 +37,12 @@ body .main {
 
 #light .main {
   background-color: #fff;
+  color: black;
 }
 
 #dark .main {
   background-color: black;
+  color: white;
 }
 
 .sign {

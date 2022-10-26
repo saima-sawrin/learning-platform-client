@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider';
+import RightSide from '../../Shared/RightSide/RightSide';
 const Register = () => {
 
     const {createUser , profileUpdate , verifyEmail} = useContext(AuthContext);
@@ -60,7 +61,8 @@ const Register = () => {
     }
  
     return (
-        <Form onSubmit={handleSubmit}>
+      
+         <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Your Name</Form.Label>
             <Form.Control name="name" type="text" placeholder="Your Name" />
@@ -98,6 +100,8 @@ const Register = () => {
             }
         </Form.Text>
     </Form>
+ 
+
     );
 };
 
