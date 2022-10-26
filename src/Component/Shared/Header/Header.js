@@ -9,6 +9,8 @@ import { hover } from '@testing-library/user-event/dist/hover';
 import ReactSwitch from "react-switch";
 import { createContext, useState } from "react";
 import Footer from '../Footer/Footer';
+import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
+import PDFFile from '../../PDFFile/PDFFile';
 export const ThemeContext = createContext(null);
 
 const Header = () => {
@@ -84,9 +86,12 @@ const Header = () => {
                           }
           </Nav.Link>
         </Nav>
-        <div className='d-lg-none'>
-  
-   </div>
+          <Nav>
+          <PDFDownloadLink document={<PDFFile />} filename="FORM">
+      {({loading}) => (loading ? <button>Loading Document...</button> : <button >Download PDF</button> )}
+      </PDFDownloadLink>
+      {/* <PDFFile /> */}
+          </Nav>
       <div className='d-lg-none'>
       <LeftSide></LeftSide>
       </div>
