@@ -29,6 +29,10 @@ const router = createBrowserRouter([
           
           },
           {
+            path:'/checkout',
+            element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
+          },
+          {
             path:'/courses',
             loader:()=>fetch('https://learning-platform-server-saima-sawrin.vercel.app/coursesInfo'),
             element: <Course></Course>
@@ -48,10 +52,7 @@ const router = createBrowserRouter([
             path:'/faq',
             element: <Faq></Faq>
           },
-          {
-            path:'/checkout',
-            element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
-          },
+          
         
           {
             path:'/terms',

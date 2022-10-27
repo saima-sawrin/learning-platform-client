@@ -5,10 +5,8 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 import LeftSide from '../LeftSide/LeftSide';
 import { FaUser } from 'react-icons/fa';
-import { hover } from '@testing-library/user-event/dist/hover';
 import ReactSwitch from "react-switch";
 import { createContext, useState } from "react";
-
 import PDFFile from '../../PDFFile/PDFFile';
 export const ThemeContext = createContext(null);
 

@@ -17,7 +17,7 @@ import toast  from 'react-hot-toast';
  const[error , setError] = useState('');
  const navigate = useNavigate();
  const location = useLocation();
- const from = location.state?.form?.pathname || '/checkout';
+ const from = location.state?.form?.pathname || '/';
 
  const handleSubmit = event =>{
      event.preventDefault();
