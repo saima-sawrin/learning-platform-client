@@ -20,7 +20,7 @@ const CheckOut = () => {
     }
     return (
 
-     <div>
+     <div >
       <h3>User Profile Information</h3>
       <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">

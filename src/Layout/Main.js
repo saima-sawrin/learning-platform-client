@@ -14,8 +14,8 @@ const Main = () => {
                 <Row >
                    <Col lg='3' className='d-none d-lg-block'>
                    <LeftSide></LeftSide>
-                   </Col>
                    
+                   </Col>
                     <Col lg='9' >
                     <Outlet></Outlet>
                     </Col>

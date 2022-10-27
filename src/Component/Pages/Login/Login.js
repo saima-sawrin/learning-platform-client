@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import {  Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 import { FaGoogle , FaGithub } from "react-icons/fa";
+import './Login.css';
 import toast  from 'react-hot-toast';
 
  const Login = () => {
@@ -16,7 +17,7 @@ import toast  from 'react-hot-toast';
  const[error , setError] = useState('');
  const navigate = useNavigate();
  const location = useLocation();
- const from = location.state?.form?.pathname || '/';
+ const from = location.state?.form?.pathname || '/checkout';
 
  const handleSubmit = event =>{
      event.preventDefault();
@@ -28,7 +29,7 @@ import toast  from 'react-hot-toast';
          const user = result.user;
          console.log(user);
          form.reset();
-         alert('Successfully login')
+ 
          setError('');
          navigate(from, {replace:true});
      })
@@ -42,25 +43,30 @@ import toast  from 'react-hot-toast';
 
  const handleSignIn = () =>{
     signIN(googleProvider)
-    .then((result) => {
+    .then(result=> {
       const user = result.user;
-      alert('Successfully login')
+     
       console.log(user);
+      navigate(from, {replace:true});
     })
     .catch(error => console.error(error))
   }
-  const handleGitSignIn = () =>{
-    signIN(githubProvider)
-    .then((result) => {
-      const user = result.user;
-      alert('Successfully login')
-      console.log(user);
-    })
-    .catch(error => console.error(error))
-  }
-    return (
-    
+  const handleGithub=()=>{
+      signIN(githubProvider)
+   .then(result=>{
+       console.log(result.user)
+       navigate(from, {replace: true});
+     }).catch(error=>{
+       console.log(error)
+     })
 
+   }
+
+
+    return (
+     <div>
+        
+        <h2>Login Here!!</h2>
       <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -85,10 +91,16 @@ import toast  from 'react-hot-toast';
       </Form.Text>
       <ButtonGroup vertical className='d-inline mb-2'>
          <Button onClick={handleSignIn}  className="mb-2" variant='outline-primary'><FaGoogle></FaGoogle>  Log in with Google</Button>
-         <Button  onClick={handleGitSignIn}  variant='outline-dark'> <FaGithub></FaGithub>   Log in with Github</Button>
+         <Button  onClick={handleGithub}  variant='outline-dark'> <FaGithub></FaGithub>   Log in with Github</Button>
         </ButtonGroup>
 
   </Form>
+
+     </div>
+  
+
+
+
     );
 };
 

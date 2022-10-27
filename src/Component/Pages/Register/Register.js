@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../../context/AuthProvider';
-import RightSide from '../../Shared/RightSide/RightSide';
-import { FaGoogle , FaGithub } from "react-icons/fa";
+
 
 const Register = () => {
 
@@ -32,7 +31,7 @@ const Register = () => {
              form.reset();
              handleUpdateProfile(name , photoURL)
              handleEmailVerification();
-             
+             alert('Successfully Registered')
             
              
          })
@@ -68,7 +67,9 @@ const Register = () => {
  
     return (
       
-         <Form onSubmit={handleSubmit}>
+      <div>
+        <h2>Registration Here!!</h2>
+        <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Your Name</Form.Label>
             <Form.Control name="name" type="text" placeholder="Your Name" />
@@ -108,6 +109,7 @@ const Register = () => {
         
     </Form>
  
+      </div>
 
     );
 };

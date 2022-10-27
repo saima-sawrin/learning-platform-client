@@ -8,8 +8,7 @@ import { FaUser } from 'react-icons/fa';
 import { hover } from '@testing-library/user-event/dist/hover';
 import ReactSwitch from "react-switch";
 import { createContext, useState } from "react";
-import Footer from '../Footer/Footer';
-import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
+
 import PDFFile from '../../PDFFile/PDFFile';
 export const ThemeContext = createContext(null);
 
@@ -41,9 +40,7 @@ const Header = () => {
           <Link className='text-decoration-none mx-4' to='/courses'>Courses</Link>
           <Link className='text-decoration-none mx-4' to='/faq'>FAQ</Link>
           <Link className='text-decoration-none mx-4' to='/blog'>Blog</Link>
-        
-          {/* <Link className='text-decoration-none mx-4' to='/login'>Login</Link>
-          <Link className='text-decoration-none mx-4' to='/reg'>Register</Link> */}
+      
        
        <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id={theme}>
@@ -55,14 +52,12 @@ const Header = () => {
       </div>
     </ThemeContext.Provider>
    
-      
         </Nav>
         <Nav>
           <>
             {
               user?.uid ?
               <>
-                  {/* <span>{user?.displayName}</span> */}
                   <Button variant="light" onClick={handleLogOut}>Log out</Button>
               </>
               :
@@ -86,12 +81,7 @@ const Header = () => {
                           }
           </Nav.Link>
         </Nav>
-          <Nav>
-          <PDFDownloadLink document={<PDFFile />} filename="FORM">
-      {({loading}) => (loading ? <Button>Loading Document...</Button> : <Button variant='primary' >Download PDF</Button> )}
-      </PDFDownloadLink>
-      {/* <PDFFile /> */}
-          </Nav>
+   
       <div className='d-lg-none'>
       <LeftSide></LeftSide>
       </div>
