@@ -17,7 +17,8 @@ import toast  from 'react-hot-toast';
  const[error , setError] = useState('');
  const navigate = useNavigate();
  const location = useLocation();
- const from = location.state?.form?.pathname || '/';
+ const from = location.state?.from?.pathname || '/';
+
 
  const handleSubmit = event =>{
      event.preventDefault();
@@ -31,7 +32,7 @@ import toast  from 'react-hot-toast';
          form.reset();
  
          setError('');
-         navigate(from, {replace:true});
+         navigate(from, {replace: true});
      })
      .catch(error => {
         console.error(error)
