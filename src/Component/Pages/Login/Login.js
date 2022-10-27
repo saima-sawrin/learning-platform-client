@@ -1,13 +1,18 @@
 import React, { useContext, useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { Button, ButtonGroup } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import {  Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
-import { toast } from 'react-hot-toast';
+import { FaGoogle , FaGithub } from "react-icons/fa";
+import toast  from 'react-hot-toast';
 
  const Login = () => {
    
- const {LogIn} = useContext(AuthContext)
+ const {LogIn , signIN} = useContext(AuthContext)
+ 
+ const googleProvider = new GoogleAuthProvider();
+ const githubProvider = new GithubAuthProvider()
  const[error , setError] = useState('');
  const navigate = useNavigate();
  const location = useLocation();
@@ -23,6 +28,7 @@ import { toast } from 'react-hot-toast';
          const user = result.user;
          console.log(user);
          form.reset();
+         alert('Successfully login')
          setError('');
          navigate(from, {replace:true});
      })
@@ -31,8 +37,27 @@ import { toast } from 'react-hot-toast';
         setError(error.message)
         
     })
+    
  }
 
+ const handleSignIn = () =>{
+    signIN(googleProvider)
+    .then((result) => {
+      const user = result.user;
+      alert('Successfully login')
+      console.log(user);
+    })
+    .catch(error => console.error(error))
+  }
+  const handleGitSignIn = () =>{
+    signIN(githubProvider)
+    .then((result) => {
+      const user = result.user;
+      alert('Successfully login')
+      console.log(user);
+    })
+    .catch(error => console.error(error))
+  }
     return (
     
 
@@ -46,16 +71,23 @@ import { toast } from 'react-hot-toast';
           <Form.Label>Password</Form.Label>
           <Form.Control name="password" type="password" placeholder="Password" required />
       </Form.Group>
+    
+      <Button  variant="primary" type="submit">
+          Login
+      </Button>
+      <br />
       <Form.Text>
         New in eduLife? Please <Link to='/reg'>Register Now</Link>
       </Form.Text>
       <br />
-      <Button  variant="primary" type="submit">
-          Login
-      </Button>
       <Form.Text className="text-danger">
-
+       {error}
       </Form.Text>
+      <ButtonGroup vertical className='d-inline mb-2'>
+         <Button onClick={handleSignIn}  className="mb-2" variant='outline-primary'><FaGoogle></FaGoogle>  Log in with Google</Button>
+         <Button  onClick={handleGitSignIn}  variant='outline-dark'> <FaGithub></FaGithub>   Log in with Github</Button>
+        </ButtonGroup>
+
   </Form>
     );
 };

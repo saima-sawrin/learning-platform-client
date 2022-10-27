@@ -1,17 +1,20 @@
 import React, { useContext, useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import { Button } from 'react-bootstrap';
+import { Button  , ButtonGroup} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../../context/AuthProvider';
 import RightSide from '../../Shared/RightSide/RightSide';
+import { FaGoogle , FaGithub } from "react-icons/fa";
+
 const Register = () => {
 
-    const {createUser , profileUpdate , verifyEmail} = useContext(AuthContext);
+    const {createUser , profileUpdate , verifyEmail , signIN} = useContext(AuthContext);
     const[error , setError] = useState('');
     const[accepted , setAccepted] = useState(false);
  
-
+    
      const handleSubmit = event => {
          event.preventDefault();
          const form = event.target;
@@ -24,11 +27,13 @@ const Register = () => {
          createUser(email, password)
          .then( result => {
              const user = result.user;
+             alert('Please Verify your email before login');
              console.log(user);
              form.reset();
              handleUpdateProfile(name , photoURL)
              handleEmailVerification();
-             toast.success('Please Verify your email before login');
+             
+            
              
          })
          .catch( e => {
@@ -59,6 +64,7 @@ const Register = () => {
     const handleAccepted = event => {
         setAccepted(event.target.checked)
     }
+   
  
     return (
       
@@ -99,6 +105,7 @@ const Register = () => {
                 error
             }
         </Form.Text>
+        
     </Form>
  
 

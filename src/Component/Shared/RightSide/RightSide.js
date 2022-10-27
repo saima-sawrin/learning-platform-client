@@ -27,20 +27,12 @@ const RightSide = () => {
     }
     return (
         <div>
-        <ButtonGroup vertical>
+        <ButtonGroup  horizontal>
          <Button onClick={handleSignIn}  variant='outline-primary'><FaGoogle></FaGoogle>  Log in with Google</Button>
          <Button  onClick={handleGitSignIn}  variant='outline-dark'> <FaGithub></FaGithub>   Log in with Github</Button>
         </ButtonGroup>
-        <div className='mt-4'>
-         <h5>Find on us</h5>
-         <ListGroup>
-         <ListGroup.Item className='mb-2 ' ><FaFacebook> </FaFacebook> Facebook</ListGroup.Item>
-         <ListGroup.Item className='mb-2 ' > <FaWhatsapp> </FaWhatsapp> Whatsapp</ListGroup.Item>
-         <ListGroup.Item className='mb-2 ' > <FaTwitter> </FaTwitter> Twitter</ListGroup.Item>
-         <ListGroup.Item className='mb-2 '><FaTwitch> </FaTwitch> Twitch</ListGroup.Item>
-         </ListGroup>
-        </div>
-        {/* <BrandCarousal></BrandCarousal> */}
+     
+        
      </div>
     );
 };

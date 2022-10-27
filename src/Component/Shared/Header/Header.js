@@ -88,7 +88,7 @@ const Header = () => {
         </Nav>
           <Nav>
           <PDFDownloadLink document={<PDFFile />} filename="FORM">
-      {({loading}) => (loading ? <button>Loading Document...</button> : <button >Download PDF</button> )}
+      {({loading}) => (loading ? <Button>Loading Document...</Button> : <Button variant='primary' >Download PDF</Button> )}
       </PDFDownloadLink>
       {/* <PDFFile /> */}
           </Nav>

@@ -18,7 +18,7 @@ const CourseDetails = ({category}) => {
           <img className='thumbnail' src={logo} alt="" />
         </Card.Body>
         <Card.Footer className="text-muted">
-            <Button  variant="primary">{buy}</Button>
+            <Button  variant="primary"><Link className='text-decoration-none text-white d-inline' to='/checkout'>{buy}</Link></Button>
 
         </Card.Footer>
         <h3>{title}</h3>

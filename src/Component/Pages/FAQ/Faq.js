@@ -8,29 +8,30 @@ const Faq = () => {
         <h2>Frequently Ask Question</h2>
          <Accordion defaultActiveKey="0">
         <Accordion.Item eventKey="0">
-          <Accordion.Header>What is CORS?</Accordion.Header>
+          <Accordion.Header>Will my new website look good on my mobile phone, tablets and other devices ?
+
+         </Accordion.Header>
           <Accordion.Body>
-          When a server has been configured correctly to allow cross-origin resource sharing, some special headers will be included. Their presence can be used to determine that a request supports CORS. Web browsers can use these headers to determine whether or not an XMLHttpRequest call should continue or fail.
+          Yes, I build mobile responsive websites which render differently depending on the screen size from which it is viewed. Mobile responsive websites are a crucial part of your success today as most people tend to access websites these days using mobile devices
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="1">
-          <Accordion.Header>Why are you using firebase? What other options do you have to implement
-            authentication?
+          <Accordion.Header>Is it PBN website or Real website?
             </Accordion.Header>
           <Accordion.Body>
-          Indeed, Firebase is a less technical and time-saving alternative to writing full-fledged backend code for dynamic apps.You might also want to consider leveraging this tool if you eventually wish to host and manage your app in the cloud. Being serverless, Firebase removes the need to worry about the technicalities of  cloud server configuration.
+          Please be assure that your guest post and article will be posted on real website with 100% traffic from organic sources such as Google and social media traffic (Linkedin, Facebook etc). This is exclusive gig and you can only post your article on the website through this gig only.
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="2">
-          <Accordion.Header>How does the private route work?</Accordion.Header>
+          <Accordion.Header>Will it be easy to edit my website? I am not a web developer.</Accordion.Header>
           <Accordion.Body>
-          The react private route component renders a route component if the user is logged in and in an authorised role for the route, if the user isn’t logged in they’re redirected to the /login page, if the user is logged in but aren’t in an authorised role they’re redirected to the home page.
+          Absolutely. It'll be very easy to use and changes can be made easily from your dashboard. I'll also be happy to offer guidance in any way I can :)
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="3">
-          <Accordion.Header>What is Node? How does Node work?</Accordion.Header>
+          <Accordion.Header>Interested in getting started with you, what do I need to provide?</Accordion.Header>
           <Accordion.Body>
-          Node.js is a JavaScript runtime used to create scalable server-side and networking applications via virtual private servers. It offers non-blocking input/output (I/O) operations and is built on event-driven, asynchronous architecture to help developers create various projects efficiently and easily.
+          I will need your hosting and domain details, contents, images, videos for your pages designing and your courses too.
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>

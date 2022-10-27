@@ -13,6 +13,7 @@ import Main from '../Layout/Main';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import Category from '../Component/Pages/Category/Category';
 import Faq from '../Component/Pages/FAQ/Faq';
+import CheckOut from '../Component/Checkout/CheckOut';
 
 
 const router = createBrowserRouter([
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
           {
             path:'/courses/:id',
             loader:({params})=>fetch(`https://learning-platform-server-saima-sawrin.vercel.app/courses/${params.id}`),
-            element: <PrivateRoute><Category></Category></PrivateRoute>
+            element: <Category></Category>
           },
          
           {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
           {
             path:'/faq',
             element: <Faq></Faq>
+          },
+          {
+            path:'/checkout',
+            element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
           },
         
           {
@@ -63,6 +68,7 @@ const router = createBrowserRouter([
             }
         ]
       },
+
         {
           path:'*',
           element: <PageNotFound></PageNotFound>
