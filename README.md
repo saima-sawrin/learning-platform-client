@@ -1,5 +1,7 @@
 # eduLife educational website
 
+# live link : https://learning-platform-cdca3.web.app/
+
 1. Uses react
 2. Uses React bootstrap for UI
 3. Uses Firebase for authentication

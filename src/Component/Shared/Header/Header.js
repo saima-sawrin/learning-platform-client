@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
-import {Image, Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import {Image, Button, Container, Nav, Navbar} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 import LeftSide from '../LeftSide/LeftSide';
