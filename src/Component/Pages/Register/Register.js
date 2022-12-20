@@ -1,18 +1,24 @@
 import React, { useContext, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { Button  , ButtonGroup} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from '../../../context/AuthProvider';
-
+import { FaGoogle , FaGithub } from "react-icons/fa";
 
 const Register = () => {
 
     const {createUser , profileUpdate , verifyEmail , signIN} = useContext(AuthContext);
     const[error , setError] = useState('');
     const[accepted , setAccepted] = useState(false);
- 
+      
+ const googleProvider = new GoogleAuthProvider();
+ const githubProvider = new GithubAuthProvider()
+
+ const navigate = useNavigate();
+ const location = useLocation();
+ const from = location.state?.from?.pathname || '/';
     
      const handleSubmit = event => {
          event.preventDefault();
@@ -64,7 +70,27 @@ const Register = () => {
         setAccepted(event.target.checked)
     }
    
- 
+    const handleSignIn = () =>{
+        signIN(googleProvider)
+        .then(result=> {
+          const user = result.user;
+         
+          console.log(user);
+          navigate(from, {replace:true});
+        })
+        .catch(error => console.error(error))
+      }
+      const handleGithub=()=>{
+          signIN(githubProvider)
+       .then(result=>{
+           console.log(result.user)
+           navigate(from, {replace: true});
+         }).catch(error=>{
+           console.log(error)
+         })
+    
+       }
+    
     return (
       
       <div>
@@ -94,9 +120,15 @@ const Register = () => {
              label= {<>Accept <Link to='/terms'>Terms & Condition</Link></>} />
         </Form.Group>
 
-        <Button  variant="primary" type="submit" disabled={!accepted}>
+    
+        <ButtonGroup vertical className='d-inline mb-2'>
+        <Button className="mb-2" variant='outline-primary' type="submit" disabled={!accepted}>
             Register
         </Button>
+    
+         <Button onClick={handleSignIn}  className="mb-2" variant='outline-primary'><FaGoogle></FaGoogle>  Log in with Google</Button>
+         <Button  onClick={handleGithub}  variant='outline-dark'> <FaGithub></FaGithub>   Log in with Github</Button>
+        </ButtonGroup>
         <br />
      
       <p>    {<>Already have an account? Please <Link to='/login'>Login</Link></>}</p>

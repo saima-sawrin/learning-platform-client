@@ -43,25 +43,25 @@ import toast  from 'react-hot-toast';
  }
 
  const handleSignIn = () =>{
-    signIN(googleProvider)
-    .then(result=> {
-      const user = result.user;
-     
-      console.log(user);
-      navigate(from, {replace:true});
-    })
-    .catch(error => console.error(error))
-  }
-  const handleGithub=()=>{
-      signIN(githubProvider)
-   .then(result=>{
-       console.log(result.user)
-       navigate(from, {replace: true});
-     }).catch(error=>{
-       console.log(error)
-     })
+  signIN(googleProvider)
+  .then(result=> {
+    const user = result.user;
+   
+    console.log(user);
+    navigate(from, {replace:true});
+  })
+  .catch(error => console.error(error))
+}
+const handleGithub=()=>{
+    signIN(githubProvider)
+ .then(result=>{
+     console.log(result.user)
+     navigate(from, {replace: true});
+   }).catch(error=>{
+     console.log(error)
+   })
 
-   }
+ }
 
 
     return (
@@ -78,23 +78,26 @@ import toast  from 'react-hot-toast';
           <Form.Label>Password</Form.Label>
           <Form.Control name="password" type="password" placeholder="Password" required />
       </Form.Group>
-    
-      <Button  variant="primary" type="submit">
-          Login
-      </Button>
+   
       <br />
-      <Form.Text>
+     
+     
+      <ButtonGroup vertical className='d-inline mb-2'>
+        <Button  variant="primary" type="submit" className="mb-2">
+           Login
+        </Button>
+  
+    
+         <Button onClick={handleSignIn}  className="mb-2" variant='outline-primary'><FaGoogle></FaGoogle>  Log in with Google</Button>
+         <Button  onClick={handleGithub}  variant='outline-dark'> <FaGithub></FaGithub>   Log in with Github</Button>
+        </ButtonGroup>
+        <Form.Text>
         New in eduLife? Please <Link to='/reg'>Register Now</Link>
       </Form.Text>
       <br />
       <Form.Text className="text-danger">
        {error}
       </Form.Text>
-      <ButtonGroup vertical className='d-inline mb-2'>
-         <Button onClick={handleSignIn}  className="mb-2" variant='outline-primary'><FaGoogle></FaGoogle>  Log in with Google</Button>
-         <Button  onClick={handleGithub}  variant='outline-dark'> <FaGithub></FaGithub>   Log in with Github</Button>
-        </ButtonGroup>
-
   </Form>
 
      </div>
