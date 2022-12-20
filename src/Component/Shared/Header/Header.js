@@ -56,7 +56,7 @@ const Header = () => {
             {
               user?.uid ?
               <>
-                  <Button  className='text-decoration-none mx-3 text-' variant="light" onClick={handleLogOut}>Log out</Button>
+                  <Button  className='text-decoration-none mx-3 text-' variant="primary" onClick={handleLogOut}>Log out</Button>
               </>
               :
               <>

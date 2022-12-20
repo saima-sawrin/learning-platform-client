@@ -122,7 +122,7 @@ const Register = () => {
 
     
         <ButtonGroup vertical className='d-inline mb-2'>
-        <Button className="mb-2" variant='outline-primary' type="submit" disabled={!accepted}>
+        <Button className="mb-2" variant='primary' type="submit" disabled={!accepted}>
             Register
         </Button>
     
