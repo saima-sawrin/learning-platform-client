@@ -13,11 +13,11 @@ export const ThemeContext = createContext(null);
 const Header = () => {
 
   const {user , LogOut} = useContext(AuthContext);
-  const [theme, setTheme] = useState("dark");
+  // const [theme, setTheme] = useState("dark");
 
-  const toggleTheme = () => {
-    setTheme((curr) => (curr === "light" ? "dark" : "light"));
-  };
+  // const toggleTheme = () => {
+  //   setTheme((curr) => (curr === "light" ? "dark" : "light"));
+  // };
 
   const handleLogOut =()=>{
     LogOut()
@@ -40,7 +40,7 @@ const Header = () => {
           <Link className='text-decoration-none mx-4' to='/blog'>Blog</Link>
       
        
-       <ThemeContext.Provider value={{ theme, toggleTheme }}>
+       {/* <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id={theme}>
          
         <div className="switch">
@@ -49,14 +49,14 @@ const Header = () => {
         </div>
       </div>
     </ThemeContext.Provider>
-   
+    */}
         </Nav>
         <Nav>
           <>
             {
               user?.uid ?
               <>
-                  <Button variant="light" onClick={handleLogOut}>Log out</Button>
+                  <Button  className='text-decoration-none mx-3 text-' variant="light" onClick={handleLogOut}>Log out</Button>
               </>
               :
               <>

@@ -2,10 +2,12 @@ import React ,{ useState }from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
 import './course.css';
+import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
+import PDFFile from '../../PDFFile/PDFFile';
 
-const CourseDetails = ({category}) => {
-        const{name , total , logo , buy , title } = category;
-       
+    const CourseDetails = ({category}) => {
+    const{name , total , logo , buy , title } = category;
+      
 
     return (
         <Card className="text-center">
@@ -17,8 +19,15 @@ const CourseDetails = ({category}) => {
           </Card.Text> */}
           <img className='thumbnail' src={logo} alt="" />
         </Card.Body>
-        <Card.Footer className="text-muted">
-            <Button  variant="primary"><Link className='text-decoration-none text-white d-inline' to='/checkout'>{buy}</Link></Button>
+        <Card.Footer direction="horizontal" gap={3}  className="text-muted ">
+          <div>
+          <Button  variant="primary"><Link className='text-decoration-none text-white d-inline ' to='/checkout'>{buy}</Link></Button>
+          </div>
+            <div>
+              <PDFDownloadLink document={<PDFFile />} filename="FORM">
+      {({loading}) => (loading ? <Button>Loading Document...</Button> : <Button variant='primary' >Download PDF</Button> )}
+      </PDFDownloadLink>
+            </div>
 
         </Card.Footer>
         <h3>{title}</h3>
