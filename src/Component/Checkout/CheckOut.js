@@ -25,25 +25,20 @@ const CheckOut = () => {
       <Form onSubmit={handleSubmit}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control readOnly defaultValue={user?.email} type="email" placeholder="Enter email" />
+          <Form.Control readOnly defaultValue={user?.email} type="email" placeholder="Enter email" disabled  />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Your Name</Form.Label>
-          <Form.Control onChange={handleNameChange} defaultValue={name} type="text" placeholder="Name" />
+          <Form.Control onChange={handleNameChange} defaultValue={name} type="text" placeholder="Name" disabled  />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Photo URL</Form.Label>
-          <Form.Control ref={photoURLRef} defaultValue={user?.photoURL} type="text" placeholder="Photo URL" />
+          <Form.Control ref={photoURLRef} defaultValue={user?.photoURL} type="text" placeholder="Photo URL" disabled />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-          Submit
-      </Button>
+      
   </Form>
 
      </div>

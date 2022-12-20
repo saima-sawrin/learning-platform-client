@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Button, ButtonGroup, Card } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
 import './Courses.css';
 
@@ -14,12 +14,11 @@ const Courses = ({course}) => {
         <Card.Title>{name}</Card.Title>
      
           <h3>$ {total}</h3>
-       
-        <Button className='mb-2 ' variant="primary" ><Link className='text-white text-decoration-none ' to={`/courses/${course_id}`}>See Details</Link></Button>
-        <br />
-
-        
+       <ButtonGroup vertical className='d-inline'>
+       <Button  variant="primary" ><Link className='text-white text-decoration-none ' to={`/courses/${course_id}`}>See Details</Link></Button>
      
+       </ButtonGroup>
+       
       </Card.Body>
     </Card>
     );
